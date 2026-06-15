@@ -20,7 +20,7 @@ function Footer() {
       }}
     >
       <p style={{ fontSize: 13, color: '#4a4a52' }}>
-        顾明远 · 个人作品归档 · {new Date().getFullYear()}
+        张木生 · 个人作品归档 · {new Date().getFullYear()}
       </p>
     </footer>
   )
