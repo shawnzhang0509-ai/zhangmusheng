@@ -59,7 +59,7 @@ export default function Navigation() {
           textDecoration: 'none',
         }}
       >
-        顾明远
+        张木生
       </a>
 
       <div className="hidden md:flex" style={{ gap: 28, alignItems: 'center' }}>
