@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router'
 
 const NAV_ITEMS = [
-  { label: '文章', href: '#articles' },
-  { label: '小说', href: '#novels' },
-  { label: '视频', href: '#videos' },
-  { label: '网站', href: '#websites' },
-  { label: '分析', href: '#analysis' },
-  { label: '股票', href: '#stocks' },
-  { label: '项目', href: '#projects' },
+  { label: '文章', href: '/#articles' },
+  { label: '小说', href: '/#novels' },
+  { label: '视频', href: '/#videos' },
+  { label: '网站', href: '/#websites' },
+  { label: '分析', href: '/#analysis' },
+  { label: '股票', href: '/#stocks' },
+  { label: '项目', href: '/#projects' },
 ]
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -20,10 +22,27 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (location.pathname !== '/') return
+    const hash = location.hash || window.location.hash
+    if (!hash) return
+    const target = document.querySelector(hash)
+    if (target) {
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: 'smooth' })
+      })
+    }
+  }, [location.pathname, location.hash])
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
     setMenuOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    if (!href.includes('#')) return
+
+    const hash = href.slice(href.indexOf('#'))
+    if (location.pathname === '/') {
+      e.preventDefault()
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -45,11 +64,13 @@ export default function Navigation() {
         borderBottom: scrolled ? '1px solid #1f1f22' : '1px solid transparent',
       }}
     >
-      <a
-        href="#"
+      <Link
+        to="/"
         onClick={(e) => {
-          e.preventDefault()
-          window.scrollTo({ top: 0, behavior: 'smooth' })
+          if (location.pathname === '/') {
+            e.preventDefault()
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }
         }}
         style={{
           fontSize: 15,
@@ -60,13 +81,13 @@ export default function Navigation() {
         }}
       >
         张木生
-      </a>
+      </Link>
 
       <div className="hidden md:flex" style={{ gap: 28, alignItems: 'center' }}>
         {NAV_ITEMS.map((item) => (
-          <a
+          <Link
             key={item.href}
-            href={item.href}
+            to={item.href}
             onClick={(e) => handleClick(e, item.href)}
             style={{
               color: '#6b6b76',
@@ -79,7 +100,7 @@ export default function Navigation() {
             onMouseLeave={(e) => { (e.target as HTMLElement).style.color = '#6b6b76' }}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -112,14 +133,14 @@ export default function Navigation() {
           }}
         >
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               onClick={(e) => handleClick(e, item.href)}
               style={{ color: '#6b6b76', fontSize: 14, textDecoration: 'none' }}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
