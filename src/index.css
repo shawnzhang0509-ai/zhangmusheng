@@ -66,4 +66,116 @@
     font-weight: 500;
     line-height: 1.4;
   }
+
+  .article-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .article-page {
+    padding: 96px 24px 80px;
+  }
+
+  .article-page-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .article-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6b6b76;
+    text-decoration: none;
+    margin-bottom: 32px;
+    transition: color 0.2s ease;
+  }
+
+  .article-back-link:hover {
+    color: #c4a35a;
+  }
+
+  .article-header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #1f1f22;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .article-header h1 {
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(28px, 5vw, 36px);
+    font-weight: 600;
+    line-height: 1.35;
+    color: #e8e8e8;
+    margin-bottom: 12px;
+  }
+
+  .article-date {
+    font-size: 13px;
+    color: #4a4a52;
+  }
+
+  .article-prose {
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #d4d4d8;
+  }
+
+  .article-prose p {
+    margin-bottom: 1.25em;
+  }
+
+  .article-prose blockquote {
+    margin: 2em 0;
+    padding: 20px 24px;
+    border-left: 3px solid #c4a35a;
+    background: rgba(196, 163, 90, 0.05);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .article-prose blockquote p {
+    margin: 0;
+    color: #e8e8e8;
+    font-size: 18px;
+  }
+
+  .article-verse {
+    margin: 1.75em 0;
+    padding-left: 1em;
+    border-left: 1px solid #2a2a30;
+  }
+
+  .article-verse p {
+    margin-bottom: 0.35em;
+    color: #b8b8c0;
+  }
+
+  .article-source {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #1f1f22;
+    font-size: 13px;
+    color: #4a4a52;
+  }
+
+  .article-source a {
+    margin-left: 6px;
+    color: #c4a35a;
+    text-decoration: none;
+  }
+
+  .article-source a:hover {
+    text-decoration: underline;
+  }
 }
