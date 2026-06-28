@@ -132,8 +132,34 @@
     color: #d4d4d8;
   }
 
-  .article-prose p {
+  .article-prose p,
+  .article-paragraph {
     margin-bottom: 1.25em;
+    white-space: pre-line;
+  }
+
+  .article-section-heading {
+    font-family: "Noto Serif SC", "Songti SC", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #e8e8e8;
+    margin: 2em 0 0.75em;
+    line-height: 1.4;
+  }
+
+  .article-list {
+    margin: 0.5em 0 1.5em;
+    padding-left: 1.25em;
+    color: #d4d4d8;
+  }
+
+  .article-list li {
+    margin-bottom: 0.5em;
+    line-height: 1.8;
+  }
+
+  .article-list li::marker {
+    color: #c4a35a;
   }
 
   .article-prose blockquote {

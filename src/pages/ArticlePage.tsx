@@ -8,7 +8,11 @@ function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
     <div className="article-prose">
       {blocks.map((block, index) => {
         if (block.type === 'paragraph') {
-          return <p key={index}>{block.text}</p>
+          return (
+            <p key={index} className="article-paragraph">
+              {block.text}
+            </p>
+          )
         }
 
         if (block.type === 'quote') {
@@ -16,6 +20,24 @@ function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
             <blockquote key={index}>
               <p>{block.text}</p>
             </blockquote>
+          )
+        }
+
+        if (block.type === 'heading') {
+          return (
+            <h2 key={index} className="article-section-heading">
+              {block.text}
+            </h2>
+          )
+        }
+
+        if (block.type === 'list') {
+          return (
+            <ul key={index} className="article-list">
+              {block.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           )
         }
 
