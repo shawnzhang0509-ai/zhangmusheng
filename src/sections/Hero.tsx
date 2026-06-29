@@ -1,6 +1,7 @@
 export default function Hero() {
   return (
     <section
+      className="hero-section"
       style={{
         minHeight: '60vh',
         display: 'flex',
@@ -9,6 +10,7 @@ export default function Hero() {
         padding: '120px 24px 60px',
         maxWidth: 1200,
         margin: '0 auto',
+        position: 'relative',
       }}
     >
       <h1
