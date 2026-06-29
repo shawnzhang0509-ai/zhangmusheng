@@ -52,6 +52,163 @@
     line-height: 1.6;
   }
 
+  .site-shell {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+
+  .wood-growth-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .wood-growth-base {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 110%, rgba(109, 154, 94, 0.14) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 15% 85%, rgba(109, 154, 94, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 85% 85%, rgba(168, 135, 90, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 35% at 50% 0%, rgba(109, 154, 94, 0.06) 0%, transparent 70%),
+      linear-gradient(180deg, #0a0f08 0%, var(--site-bg) 35%, #0e140c 100%);
+  }
+
+  .wood-growth-svg {
+    position: absolute;
+    color: var(--site-accent);
+    opacity: 0.35;
+  }
+
+  .wood-growth-svg--left {
+    left: 0;
+    bottom: 0;
+    width: min(28vw, 260px);
+    height: 85vh;
+  }
+
+  .wood-growth-svg--right {
+    right: 0;
+    bottom: 0;
+    width: min(28vw, 260px);
+    height: 85vh;
+    color: #5a8a52;
+  }
+
+  .wood-growth-svg--center {
+    left: 50%;
+    bottom: 0;
+    width: min(50vw, 420px);
+    height: 45vh;
+    transform: translateX(-50%);
+    opacity: 0.22;
+  }
+
+  .wood-vine {
+    opacity: 0.7;
+  }
+
+  .wood-trunk {
+    color: var(--site-accent-brown);
+    opacity: 0.55;
+  }
+
+  .wood-branch {
+    opacity: 0.45;
+  }
+
+  .wood-leaf {
+    opacity: 0.55;
+    transform-origin: center;
+  }
+
+  .wood-grass {
+    fill: rgba(109, 154, 94, 0.35);
+  }
+
+  .wood-grass--brown {
+    fill: rgba(168, 135, 90, 0.28);
+  }
+
+  .wood-spore {
+    fill: rgba(109, 154, 94, 0.45);
+  }
+
+  .wood-growth-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+
+  .wood-growth-glow--top {
+    top: -8%;
+    left: 50%;
+    width: 60vw;
+    height: 30vh;
+    transform: translateX(-50%);
+    background: rgba(109, 154, 94, 0.07);
+  }
+
+  .wood-growth-glow--bottom {
+    bottom: -5%;
+    left: 50%;
+    width: 80vw;
+    height: 25vh;
+    transform: translateX(-50%);
+    background: rgba(109, 154, 94, 0.1);
+  }
+
+  @keyframes wood-leaf-sway-a {
+    0%, 100% { transform: rotate(-2deg) scale(1); }
+    50% { transform: rotate(3deg) scale(1.02); }
+  }
+
+  @keyframes wood-leaf-sway-b {
+    0%, 100% { transform: rotate(2deg) scale(1); }
+    50% { transform: rotate(-3deg) scale(0.98); }
+  }
+
+  @keyframes wood-leaf-sway-c {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .wood-leaf--sway-a {
+    animation: wood-leaf-sway-a 9s ease-in-out infinite;
+  }
+
+  .wood-leaf--sway-b {
+    animation: wood-leaf-sway-b 11s ease-in-out infinite;
+  }
+
+  .wood-leaf--sway-c {
+    animation: wood-leaf-sway-c 13s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .wood-growth-svg--left,
+    .wood-growth-svg--right {
+      width: 36vw;
+      opacity: 0.28;
+    }
+
+    .wood-growth-svg--center {
+      width: 70vw;
+      opacity: 0.16;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wood-leaf--sway-a,
+    .wood-leaf--sway-b,
+    .wood-leaf--sway-c {
+      animation: none;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     word-break: keep-all;
   }
@@ -59,11 +216,12 @@
 
 @layer components {
   .content-card {
-    background: var(--site-bg-card);
+    background: rgba(21, 28, 18, 0.88);
     border: 1px solid var(--site-border);
     border-radius: 8px;
     padding: 20px;
     transition: border-color 0.2s ease;
+    backdrop-filter: blur(8px);
   }
 
   .content-card:hover {
