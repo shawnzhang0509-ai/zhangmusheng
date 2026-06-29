@@ -5,7 +5,7 @@ import { SectionHeader } from './ArticleSection'
 export default function VideoSection() {
   return (
     <section id="videos" style={{ padding: '80px 24px', maxWidth: 1200, margin: '0 auto' }}>
-      <SectionHeader label="VIDEOS" title="视频" desc="视觉表达与记录" />
+      <SectionHeader label="VIDEOS" title="视频" desc="盒子之外 · MBTI 心理学系列" />
 
       <div
         style={{
@@ -28,11 +28,20 @@ export default function VideoSection() {
                 <img
                   src={video.cover ?? '/images/videos.jpg'}
                   alt={video.title}
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const img = e.currentTarget
+                    if (!img.dataset.fallback) {
+                      img.dataset.fallback = '1'
+                      img.src = '/images/videos.jpg'
+                    }
+                  }}
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    opacity: video.cover ? 0.85 : 0.6,
+                    opacity: video.cover ? 1 : 0.6,
                     display: 'block',
                   }}
                 />
@@ -82,7 +91,7 @@ export default function VideoSection() {
 
           if (video.slug) {
             return (
-              <Link key={video.title} to={`/videos/${video.slug}`} className="content-card video-card-link">
+              <Link key={video.slug ?? video.title} to={`/videos/${video.slug}`} className="content-card video-card-link">
                 {card}
               </Link>
             )
