@@ -73,7 +73,7 @@ export default function AnalysisSection() {
                 style={{
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#e8e8e8',
+                  color: 'var(--site-text)',
                   lineHeight: 1.5,
                 }}
               >
@@ -81,14 +81,14 @@ export default function AnalysisSection() {
               </h3>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
                 <span className="tag">{item.type}</span>
-                <span style={{ fontSize: 12, color: '#4a4a52' }}>{item.date}</span>
+                <span style={{ fontSize: 12, color: 'var(--site-text-faint)' }}>{item.date}</span>
               </div>
             </div>
 
             <p
               style={{
                 fontSize: 13,
-                color: '#c4a35a',
+                color: 'var(--site-accent)',
                 marginBottom: 8,
                 fontWeight: 500,
               }}
@@ -99,7 +99,7 @@ export default function AnalysisSection() {
             <p
               style={{
                 fontSize: 14,
-                color: '#6b6b76',
+                color: 'var(--site-text-muted)',
                 lineHeight: 1.7,
               }}
             >

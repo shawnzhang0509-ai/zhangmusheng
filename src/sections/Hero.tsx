@@ -15,7 +15,7 @@ export default function Hero() {
         style={{
           fontSize: 'clamp(32px, 5vw, 52px)',
           fontWeight: 600,
-          color: '#e8e8e8',
+          color: 'var(--site-text)',
           letterSpacing: '-0.02em',
           lineHeight: 1.2,
           marginBottom: 16,
@@ -26,7 +26,7 @@ export default function Hero() {
       <p
         style={{
           fontSize: 16,
-          color: '#6b6b76',
+          color: 'var(--site-text-muted)',
           lineHeight: 1.7,
           maxWidth: 520,
         }}

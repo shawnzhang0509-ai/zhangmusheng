@@ -58,13 +58,13 @@ function ArticleFooter() {
     <footer
       style={{
         padding: '48px 24px',
-        borderTop: '1px solid #1f1f22',
+        borderTop: '1px solid var(--site-border)',
         maxWidth: 1200,
         margin: '0 auto',
         textAlign: 'center',
       }}
     >
-      <p style={{ fontSize: 13, color: '#4a4a52' }}>
+      <p style={{ fontSize: 13, color: 'var(--site-text-faint)' }}>
         张木生 · 个人作品归档 · {new Date().getFullYear()}
       </p>
     </footer>
@@ -80,7 +80,7 @@ export default function ArticlePage() {
       <div>
         <Navigation />
         <main style={{ padding: '120px 24px', maxWidth: 720, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: '#6b6b76', marginBottom: 24 }}>文章不存在或尚未发布正文。</p>
+          <p style={{ color: 'var(--site-text-muted)', marginBottom: 24 }}>文章不存在或尚未发布正文。</p>
           <Link to="/" className="article-back-link">
             返回首页
           </Link>

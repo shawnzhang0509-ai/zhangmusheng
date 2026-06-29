@@ -74,7 +74,7 @@ export default function StockSection() {
                     style={{
                       fontSize: 17,
                       fontWeight: 600,
-                      color: '#e8e8e8',
+                      color: 'var(--site-text)',
                       lineHeight: 1.4,
                     }}
                   >
@@ -83,7 +83,7 @@ export default function StockSection() {
                   <span
                     style={{
                       fontSize: 12,
-                      color: '#4a4a52',
+                      color: 'var(--site-text-faint)',
                       fontFamily: 'monospace',
                     }}
                   >
@@ -92,7 +92,7 @@ export default function StockSection() {
                 </div>
                 <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
                   <span className="tag">{c.strategy}</span>
-                  <span style={{ fontSize: 12, color: '#4a4a52' }}>{c.period}</span>
+                  <span style={{ fontSize: 12, color: 'var(--site-text-faint)' }}>{c.period}</span>
                 </div>
               </div>
               <span
@@ -112,7 +112,7 @@ export default function StockSection() {
             <p
               style={{
                 fontSize: 14,
-                color: '#6b6b76',
+                color: 'var(--site-text-muted)',
                 lineHeight: 1.7,
               }}
             >
@@ -125,7 +125,7 @@ export default function StockSection() {
       <p
         style={{
           fontSize: 12,
-          color: '#4a4a52',
+          color: 'var(--site-text-faint)',
           marginTop: 24,
           lineHeight: 1.6,
         }}
