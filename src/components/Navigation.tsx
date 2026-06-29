@@ -59,9 +59,9 @@ export default function Navigation() {
         alignItems: 'center',
         justifyContent: 'space-between',
         transition: 'all 0.3s ease',
-        backgroundColor: scrolled ? 'rgba(10, 10, 11, 0.9)' : 'transparent',
+        backgroundColor: scrolled ? 'var(--site-bg-nav)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid #1f1f22' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid var(--site-border)' : '1px solid transparent',
       }}
     >
       <Link
@@ -75,7 +75,7 @@ export default function Navigation() {
         style={{
           fontSize: 15,
           fontWeight: 600,
-          color: '#e8e8e8',
+          color: 'var(--site-accent-brown)',
           letterSpacing: '0.02em',
           textDecoration: 'none',
         }}
@@ -90,14 +90,14 @@ export default function Navigation() {
             to={item.href}
             onClick={(e) => handleClick(e, item.href)}
             style={{
-              color: '#6b6b76',
+              color: 'var(--site-text-muted)',
               fontSize: 13,
               fontWeight: 500,
               textDecoration: 'none',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#c4a35a' }}
-            onMouseLeave={(e) => { (e.target as HTMLElement).style.color = '#6b6b76' }}
+            onMouseEnter={(e) => { (e.target as HTMLElement).style.color = 'var(--site-accent)' }}
+            onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'var(--site-text-muted)' }}
           >
             {item.label}
           </Link>
@@ -110,9 +110,9 @@ export default function Navigation() {
         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}
         aria-label="菜单"
       >
-        <div style={{ width: 20, height: 1.5, backgroundColor: '#e8e8e8', marginBottom: 5 }} />
-        <div style={{ width: 20, height: 1.5, backgroundColor: '#e8e8e8', marginBottom: 5 }} />
-        <div style={{ width: 14, height: 1.5, backgroundColor: '#e8e8e8' }} />
+        <div style={{ width: 20, height: 1.5, backgroundColor: 'var(--site-text)', marginBottom: 5 }} />
+        <div style={{ width: 20, height: 1.5, backgroundColor: 'var(--site-text)', marginBottom: 5 }} />
+        <div style={{ width: 14, height: 1.5, backgroundColor: 'var(--site-text)' }} />
       </button>
 
       {menuOpen && (
@@ -123,13 +123,13 @@ export default function Navigation() {
             top: 56,
             left: 0,
             width: '100%',
-            backgroundColor: 'rgba(10, 10, 11, 0.98)',
+            backgroundColor: 'rgba(12, 17, 9, 0.98)',
             backdropFilter: 'blur(12px)',
             padding: '16px 24px',
             display: 'flex',
             flexDirection: 'column',
             gap: 16,
-            borderBottom: '1px solid #1f1f22',
+            borderBottom: '1px solid var(--site-border)',
           }}
         >
           {NAV_ITEMS.map((item) => (
@@ -137,7 +137,7 @@ export default function Navigation() {
               key={item.href}
               to={item.href}
               onClick={(e) => handleClick(e, item.href)}
-              style={{ color: '#6b6b76', fontSize: 14, textDecoration: 'none' }}
+              style={{ color: 'var(--site-text-muted)', fontSize: 14, textDecoration: 'none' }}
             >
               {item.label}
             </Link>

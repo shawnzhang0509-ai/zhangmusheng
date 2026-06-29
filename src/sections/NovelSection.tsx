@@ -26,7 +26,7 @@ export default function NovelSection() {
           style={{
             borderRadius: 8,
             overflow: 'hidden',
-            border: '1px solid #1f1f22',
+            border: '1px solid var(--site-border)',
             aspectRatio: '2/3',
           }}
         >
@@ -42,7 +42,7 @@ export default function NovelSection() {
             style={{
               fontSize: 24,
               fontWeight: 600,
-              color: '#e8e8e8',
+              color: 'var(--site-text)',
               marginBottom: 12,
               lineHeight: 1.3,
             }}
@@ -52,7 +52,7 @@ export default function NovelSection() {
           <p
             style={{
               fontSize: 15,
-              color: '#6b6b76',
+              color: 'var(--site-text-muted)',
               lineHeight: 1.8,
               marginBottom: 20,
               maxWidth: 560,
@@ -70,7 +70,7 @@ export default function NovelSection() {
                 padding: '4px 10px',
                 borderRadius: 4,
                 border: '1px solid rgba(196, 163, 90, 0.3)',
-                color: '#c4a35a',
+                color: 'var(--site-accent)',
                 fontSize: 12,
               }}
             >
@@ -78,7 +78,7 @@ export default function NovelSection() {
             </span>
           </div>
 
-          <p style={{ fontSize: 13, color: '#4a4a52', marginBottom: 12 }}>章节列表</p>
+          <p style={{ fontSize: 13, color: 'var(--site-text-faint)', marginBottom: 12 }}>章节列表</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {chapters.map((ch, i) => (
               <div
@@ -88,13 +88,13 @@ export default function NovelSection() {
                   alignItems: 'center',
                   gap: 12,
                   padding: '8px 0',
-                  borderBottom: '1px solid #1f1f22',
+                  borderBottom: '1px solid var(--site-border)',
                 }}
               >
-                <span style={{ fontSize: 12, color: '#4a4a52', minWidth: 28 }}>
+                <span style={{ fontSize: 12, color: 'var(--site-text-faint)', minWidth: 28 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span style={{ fontSize: 14, color: i < 3 ? '#e8e8e8' : '#4a4a52' }}>
+                <span style={{ fontSize: 14, color: i < 3 ? 'var(--site-text)' : 'var(--site-text-faint)' }}>
                   {ch}
                 </span>
                 {i < 3 && (
@@ -102,7 +102,7 @@ export default function NovelSection() {
                     style={{
                       marginLeft: 'auto',
                       fontSize: 11,
-                      color: '#c4a35a',
+                      color: 'var(--site-accent)',
                       padding: '2px 8px',
                       borderRadius: 4,
                       background: 'rgba(196, 163, 90, 0.08)',
@@ -123,7 +123,7 @@ export default function NovelSection() {
           style={{
             fontSize: 14,
             fontWeight: 600,
-            color: '#6b6b76',
+            color: 'var(--site-text-muted)',
             marginBottom: 16,
             letterSpacing: '0.05em',
           }}
@@ -148,12 +148,12 @@ export default function NovelSection() {
               }}
             >
               <div>
-                <h5 style={{ fontSize: 15, fontWeight: 500, color: '#e8e8e8', marginBottom: 4 }}>
+                <h5 style={{ fontSize: 15, fontWeight: 500, color: 'var(--site-text)', marginBottom: 4 }}>
                   {story.title}
                 </h5>
-                <p style={{ fontSize: 13, color: '#6b6b76' }}>{story.desc}</p>
+                <p style={{ fontSize: 13, color: 'var(--site-text-muted)' }}>{story.desc}</p>
               </div>
-              <span style={{ fontSize: 12, color: '#4a4a52', whiteSpace: 'nowrap' }}>
+              <span style={{ fontSize: 12, color: 'var(--site-text-faint)', whiteSpace: 'nowrap' }}>
                 {story.date}
               </span>
             </div>

@@ -27,7 +27,7 @@ export default function ArticleSection() {
                 style={{
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#e8e8e8',
+                  color: 'var(--site-text)',
                   lineHeight: 1.5,
                   marginBottom: 8,
                 }}
@@ -37,14 +37,14 @@ export default function ArticleSection() {
               <p
                 style={{
                   fontSize: 14,
-                  color: '#6b6b76',
+                  color: 'var(--site-text-muted)',
                   lineHeight: 1.7,
                   marginBottom: 12,
                 }}
               >
                 {article.summary}
               </p>
-              <span style={{ fontSize: 12, color: '#4a4a52' }}>{article.date}</span>
+              <span style={{ fontSize: 12, color: 'var(--site-text-faint)' }}>{article.date}</span>
             </>
           )
 
@@ -85,7 +85,7 @@ export function SectionHeader({
       <span
         style={{
           fontSize: 12,
-          color: '#c4a35a',
+          color: 'var(--site-accent-brown)',
           letterSpacing: '0.1em',
           fontWeight: 500,
           textTransform: 'uppercase' as const,
@@ -97,7 +97,7 @@ export function SectionHeader({
         style={{
           fontSize: 28,
           fontWeight: 600,
-          color: '#e8e8e8',
+          color: 'var(--site-text)',
           marginTop: 8,
           marginBottom: 8,
           lineHeight: 1.3,
@@ -105,8 +105,8 @@ export function SectionHeader({
       >
         {title}
       </h2>
-      <p style={{ fontSize: 14, color: '#6b6b76' }}>{desc}</p>
-      <div style={{ width: 40, height: 1, backgroundColor: '#1f1f22', marginTop: 20 }} />
+      <p style={{ fontSize: 14, color: 'var(--site-text-muted)' }}>{desc}</p>
+      <div style={{ width: 40, height: 1, backgroundColor: 'var(--site-border)', marginTop: 20 }} />
     </div>
   )
 }

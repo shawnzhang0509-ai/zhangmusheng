@@ -71,7 +71,7 @@ export default function ProjectSection() {
                 style={{
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#e8e8e8',
+                  color: 'var(--site-text)',
                   lineHeight: 1.5,
                   flex: 1,
                 }}
@@ -81,7 +81,7 @@ export default function ProjectSection() {
               <span
                 style={{
                   fontSize: 11,
-                  color: '#c4a35a',
+                  color: 'var(--site-accent)',
                   whiteSpace: 'nowrap',
                   padding: '2px 8px',
                   borderRadius: 4,
@@ -96,7 +96,7 @@ export default function ProjectSection() {
             <p
               style={{
                 fontSize: 12,
-                color: '#4a4a52',
+                color: 'var(--site-text-faint)',
                 marginBottom: 12,
               }}
             >
@@ -106,7 +106,7 @@ export default function ProjectSection() {
             <p
               style={{
                 fontSize: 14,
-                color: '#6b6b76',
+                color: 'var(--site-text-muted)',
                 lineHeight: 1.7,
                 marginBottom: 16,
               }}

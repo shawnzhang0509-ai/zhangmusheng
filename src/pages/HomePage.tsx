@@ -13,13 +13,13 @@ function Footer() {
     <footer
       style={{
         padding: '48px 24px',
-        borderTop: '1px solid #1f1f22',
+        borderTop: '1px solid var(--site-border)',
         maxWidth: 1200,
         margin: '0 auto',
         textAlign: 'center',
       }}
     >
-      <p style={{ fontSize: 13, color: '#4a4a52' }}>
+      <p style={{ fontSize: 13, color: 'var(--site-text-faint)' }}>
         张木生 · 个人作品归档 · {new Date().getFullYear()}
       </p>
     </footer>
@@ -29,7 +29,7 @@ function Footer() {
 function SectionDivider() {
   return (
     <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
-      <div style={{ height: 1, backgroundColor: '#1f1f22' }} />
+      <div style={{ height: 1, backgroundColor: 'var(--site-border)' }} />
     </div>
   )
 }

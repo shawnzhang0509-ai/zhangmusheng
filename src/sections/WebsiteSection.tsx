@@ -64,7 +64,7 @@ export default function WebsiteSection() {
                 style={{
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#e8e8e8',
+                  color: 'var(--site-text)',
                   lineHeight: 1.4,
                   flex: 1,
                 }}
@@ -78,8 +78,8 @@ export default function WebsiteSection() {
                     site.status === '已上线'
                       ? '#5a9e6f'
                       : site.status === '开发中'
-                        ? '#c4a35a'
-                        : '#6b6b76',
+                        ? 'var(--site-accent)'
+                        : 'var(--site-text-muted)',
                   padding: '2px 8px',
                   borderRadius: 4,
                   backgroundColor:
@@ -99,7 +99,7 @@ export default function WebsiteSection() {
             <p
               style={{
                 fontSize: 14,
-                color: '#6b6b76',
+                color: 'var(--site-text-muted)',
                 lineHeight: 1.7,
                 marginBottom: 16,
               }}
