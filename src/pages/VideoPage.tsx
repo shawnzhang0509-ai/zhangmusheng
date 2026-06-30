@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router'
 import Navigation from '../components/Navigation'
-import { formatBilibiliEmbedUrl, getVideoBySlug } from '../data/videos'
+import { VIDEO_COLLECTIONS, formatBilibiliEmbedUrl, getVideoBySlug } from '../data/videos'
 
 function VideoFooter() {
   return (
@@ -39,6 +39,10 @@ export default function VideoPage() {
     )
   }
 
+  const collection = video.collection
+    ? VIDEO_COLLECTIONS.find((item) => item.id === video.collection)
+    : undefined
+
   return (
     <div>
       <Navigation />
@@ -49,6 +53,9 @@ export default function VideoPage() {
           </Link>
 
           <header className="video-header">
+            {collection && (
+              <p className="video-collection-label">{collection.title}</p>
+            )}
             {video.tags && video.tags.length > 0 && (
               <div className="article-meta">
                 {video.tags.map((tag) => (

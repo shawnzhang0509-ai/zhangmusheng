@@ -1,109 +1,131 @@
 import { Link } from 'react-router'
-import { VIDEOS } from '../data/videos'
+import { VIDEO_COLLECTIONS, getVideosByCollection } from '../data/videos'
+import type { Video } from '../data/videos'
 import { SectionHeader } from './ArticleSection'
+
+function VideoCard({ video }: { video: Video }) {
+  const card = (
+    <>
+      <div
+        style={{
+          position: 'relative',
+          aspectRatio: '16/9',
+          backgroundColor: 'var(--site-bg)',
+          overflow: 'hidden',
+        }}
+      >
+        <img
+          src={video.cover ?? '/images/videos.jpg'}
+          alt={video.title}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={(e) => {
+            const img = e.currentTarget
+            if (!img.dataset.fallback) {
+              img.dataset.fallback = '1'
+              img.src = '/images/videos.jpg'
+            }
+          }}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: video.cover ? 1 : 0.6,
+            display: 'block',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div className="video-play-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--site-bg)">
+              <polygon points="8,5 20,12 8,19" />
+            </svg>
+          </div>
+        </div>
+        <span className="video-duration-badge">{video.duration}</span>
+      </div>
+      <div style={{ padding: 16 }}>
+        <h3
+          style={{
+            fontSize: 15,
+            fontWeight: 600,
+            color: 'var(--site-text)',
+            lineHeight: 1.5,
+            marginBottom: 6,
+          }}
+        >
+          {video.title}
+        </h3>
+        <p
+          style={{
+            fontSize: 13,
+            color: 'var(--site-text-muted)',
+            lineHeight: 1.6,
+            marginBottom: 8,
+          }}
+        >
+          {video.desc}
+        </p>
+        <span style={{ fontSize: 12, color: 'var(--site-text-faint)' }}>{video.date}</span>
+      </div>
+    </>
+  )
+
+  if (video.slug) {
+    return (
+      <Link key={video.slug} to={`/videos/${video.slug}`} className="content-card video-card-link">
+        {card}
+      </Link>
+    )
+  }
+
+  return (
+    <div key={video.title} className="content-card" style={{ padding: 0, overflow: 'hidden' }}>
+      {card}
+    </div>
+  )
+}
 
 export default function VideoSection() {
   return (
     <section id="videos" style={{ padding: '80px 24px', maxWidth: 1200, margin: '0 auto' }}>
-      <SectionHeader label="VIDEOS" title="视频" desc="盒子之外 · MBTI 心理学系列" />
+      <SectionHeader label="VIDEOS" title="视频" desc="盒子之外 · 心理学系列合集" />
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: 16,
-        }}
-      >
-        {VIDEOS.map((video) => {
-          const card = (
-            <>
-              <div
-                style={{
-                  position: 'relative',
-                  aspectRatio: '16/9',
-                  backgroundColor: 'var(--site-bg)',
-                  overflow: 'hidden',
-                }}
-              >
-                <img
-                  src={video.cover ?? '/images/videos.jpg'}
-                  alt={video.title}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    const img = e.currentTarget
-                    if (!img.dataset.fallback) {
-                      img.dataset.fallback = '1'
-                      img.src = '/images/videos.jpg'
-                    }
-                  }}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    opacity: video.cover ? 1 : 0.6,
-                    display: 'block',
-                  }}
-                />
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <div className="video-play-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--site-bg)">
-                      <polygon points="8,5 20,12 8,19" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="video-duration-badge">{video.duration}</span>
+      {VIDEO_COLLECTIONS.map((collection, index) => {
+        const videos = getVideosByCollection(collection.id)
+        if (videos.length === 0) return null
+
+        return (
+          <div key={collection.id} style={{ marginBottom: index < VIDEO_COLLECTIONS.length - 1 ? 56 : 0 }}>
+            <div className="video-collection-header">
+              <div>
+                <h3 className="video-collection-title">{collection.title}</h3>
+                <p className="video-collection-desc">{collection.desc}</p>
               </div>
-              <div style={{ padding: 16 }}>
-                <h3
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 600,
-                    color: 'var(--site-text)',
-                    lineHeight: 1.5,
-                    marginBottom: 6,
-                  }}
-                >
-                  {video.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: 'var(--site-text-muted)',
-                    lineHeight: 1.6,
-                    marginBottom: 8,
-                  }}
-                >
-                  {video.desc}
-                </p>
-                <span style={{ fontSize: 12, color: 'var(--site-text-faint)' }}>{video.date}</span>
-              </div>
-            </>
-          )
-
-          if (video.slug) {
-            return (
-              <Link key={video.slug ?? video.title} to={`/videos/${video.slug}`} className="content-card video-card-link">
-                {card}
-              </Link>
-            )
-          }
-
-          return (
-            <div key={video.title} className="content-card" style={{ padding: 0, overflow: 'hidden' }}>
-              {card}
+              <span className="video-collection-count">{videos.length} 支</span>
             </div>
-          )
-        })}
-      </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: 16,
+              }}
+            >
+              {videos.map((video) => (
+                <VideoCard key={video.slug ?? video.title} video={video} />
+              ))}
+            </div>
+          </div>
+        )
+      })}
     </section>
   )
 }
