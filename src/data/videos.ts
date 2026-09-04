@@ -1,3 +1,23 @@
+
+export interface VideoCollection {
+  id: string
+  title: string
+  desc: string
+}
+
+export const VIDEO_COLLECTIONS: VideoCollection[] = [
+  {
+    id: 'mbti',
+    title: 'MBTI 十六型人格',
+    desc: '盒子之外心理学系列：从理论入门到十六型全覆盖',
+  },
+  {
+    id: 'jung',
+    title: '荣格八维',
+    desc: '认知功能概述、两面性剖析与 MBTI 换算',
+  },
+]
+
 export interface Video {
   slug?: string
   title: string
@@ -9,11 +29,13 @@ export interface Video {
   bvid?: string
   cover?: string
   sourceUrl?: string
+  collection?: string
 }
 
 export const VIDEOS: Video[] = [
   {
     slug: 'mbti-8min-intro',
+    collection: 'mbti',
     title: '8分钟认识MBTI理论【盒子之外.心理学系列】',
     duration: '08:22',
     date: '2020-03-21',
@@ -26,6 +48,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-label-addiction',
+    collection: 'mbti',
     title: '标签上瘾：你在嗑人格分类的精神鸦片吗？',
     duration: '07:37',
     date: '2025-08-03',
@@ -38,6 +61,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-isfp',
+    collection: 'mbti',
     title: '9分钟了解ISFP人格类型【代表人物：鲍勃.迪伦，迈克尔.杰克逊，毕加索，张爱玲】',
     duration: '09:14',
     date: '2020-05-27',
@@ -50,6 +74,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-isfj',
+    collection: 'mbti',
     title: '6分钟了解ISFJ人格类型【代表人物：南丁格尔，美国队长】',
     duration: '06:22',
     date: '2020-05-03',
@@ -62,6 +87,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-esfp',
+    collection: 'mbti',
     title: '7分钟了解ESFP人格类型【代表人物：玛丽莲.梦露，莱昂纳多.迪卡普里奥，Angela Baby，比尔.克林顿】',
     duration: '07:32',
     date: '2020-06-18',
@@ -74,6 +100,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-esfj',
+    collection: 'mbti',
     title: '7钟了解ESFJ人格类型【代表人物：休.杰克曼，珊莎.史塔克，比尔博】',
     duration: '07:19',
     date: '2020-05-14',
@@ -86,6 +113,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-estp',
+    collection: 'mbti',
     title: '7分钟了解ESTP人格类型【代表人物：丘吉尔，唐纳德.川普，詹姆.兰尼斯特，杰克.尼科尔森】',
     duration: '07:12',
     date: '2020-06-07',
@@ -98,6 +126,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-estj',
+    collection: 'mbti',
     title: '7分钟了解ESTJ人格类型【代表人物：千手扉间，赫敏，罗伯.史塔克】',
     duration: '07:48',
     date: '2020-05-07',
@@ -110,6 +139,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-istp',
+    collection: 'mbti',
     title: '7分钟了解ISTP人格类型【代表人物：迈克尔.乔丹，李小龙，普京，汤姆.克鲁斯】',
     duration: '07:20',
     date: '2020-05-20',
@@ -122,6 +152,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-istj',
+    collection: 'mbti',
     title: '7分钟了解ISTJ人格类型【代表人物：沃伦.巴菲特，达西先生，乔治.华盛顿】',
     duration: '07:19',
     date: '2020-04-29',
@@ -134,6 +165,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-enfj',
+    collection: 'mbti',
     title: '8分钟了解ENFJ人格类型【代表人物：奥巴马，龙母，马丁.路德.金】',
     duration: '08:44',
     date: '2020-04-22',
@@ -146,6 +178,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-enfp',
+    collection: 'mbti',
     title: '7分钟了解ENFP人格类型【代表人物：李白，令狐冲，王尔德】',
     duration: '07:39',
     date: '2020-04-25',
@@ -158,6 +191,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-infp',
+    collection: 'mbti',
     title: '7分钟了解INFP人格类型【代表人物：梵高，庄周，莎士比亚，太宰治】',
     duration: '07:40',
     date: '2020-04-19',
@@ -170,6 +204,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-infj',
+    collection: 'mbti',
     title: '9分钟了解INFJ人格类型【代表人物：甘地，曼德拉，宇智波鼬，琼恩.雪诺】',
     duration: '09:05',
     date: '2020-04-16',
@@ -182,6 +217,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-entp',
+    collection: 'mbti',
     title: '7分钟了解ENTP人格类型【代表人物：马克.吐温，钢铁侠，李云龙，杰克船长】',
     duration: '07:48',
     date: '2020-04-11',
@@ -194,6 +230,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-intp',
+    collection: 'mbti',
     title: '9分钟了解INTP人格类型【代表人物：爱因斯坦，笛卡尔，尼奥，达尔文，林肯】',
     duration: '09:51',
     date: '2020-04-06',
@@ -206,6 +243,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-entj',
+    collection: 'mbti',
     title: '6分钟了解ENTJ人格类型【代表人物：乔布斯，拿破仑，宇智波斑】',
     duration: '06:22',
     date: '2020-04-04',
@@ -218,6 +256,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-intj',
+    collection: 'mbti',
     title: '6分钟了解INTJ人格类型【代表人物：佐助，灰原哀，梅长苏，扎克伯格】',
     duration: '06:29',
     date: '2020-03-28',
@@ -230,6 +269,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-san-shi-er-yi-nan',
+    collection: 'mbti',
     title: 'MBTI实战篇之 《三十而已》四位男性角色 人格类型分析',
     duration: '19:53',
     date: '2021-09-03',
@@ -242,6 +282,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-san-shi-er-yi-nv',
+    collection: 'mbti',
     title: 'MBTI实战篇之 《三十而已》三位女主 人格类型分析',
     duration: '20:16',
     date: '2021-06-25',
@@ -254,6 +295,7 @@ export const VIDEOS: Video[] = [
   },
   {
     slug: 'mbti-origin',
+    collection: 'mbti',
     title: '我做MBTI的初衷，开启碎碎念模式',
     duration: '12:39',
     date: '2020-07-10',
@@ -263,8 +305,90 @@ export const VIDEOS: Video[] = [
     bvid: 'BV1iK4y1s7rp',
     cover: 'https://i1.hdslb.com/bfs/archive/6b6d9fd7ad4f1e3fbf1475608b9077b01382d490.jpg',
     sourceUrl: 'https://b23.tv/Pgjrm9K',
-  }
+  },
+  {
+    slug: 'jung-overview-1',
+    collection: 'jung',
+    title: '荣格八维概述（上）',
+    duration: '08:47',
+    date: '2020-07-27',
+    summary: '荣格八维系列开篇：认知功能概述（上）。',
+    desc: '荣格八维系列开篇：认知功能概述（上）。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1TZ4y1g7YP',
+    cover: 'https://i2.hdslb.com/bfs/archive/4bb2cb0e0fe0127c1e9a0185ce46f8e512d1dd41.jpg',
+    sourceUrl: 'https://b23.tv/qC3LGkM',
+  },
+  {
+    slug: 'jung-overview-2',
+    collection: 'jung',
+    title: '荣格八维概述（下）',
+    duration: '07:19',
+    date: '2020-08-04',
+    summary: '荣格八维系列：认知功能概述（下）。',
+    desc: '荣格八维系列：认知功能概述（下）。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1S54y1v77B',
+    cover: 'https://i0.hdslb.com/bfs/archive/8ee69f5aac29228878b12c03a83a005294b88680.jpg',
+    sourceUrl: 'https://b23.tv/RMW9G7i',
+  },
+  {
+    slug: 'jung-perceiving-functions',
+    collection: 'jung',
+    title: '请你放弃成为完美的人，因为这是不可能的，荣格八维每一维的两面性之剖析【上篇-感知功能四维】',
+    duration: '20:19',
+    date: '2021-10-10',
+    summary: '放弃成为完美的人——感知功能四维的两面性剖析（上篇）。',
+    desc: '放弃成为完美的人——感知功能四维的两面性剖析（上篇）。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1Kh411n7r8',
+    cover: 'https://i0.hdslb.com/bfs/archive/22f9434d82f2d39790690f190e5f908485a03795.jpg',
+    sourceUrl: 'https://b23.tv/vMg8LAS',
+  },
+  {
+    slug: 'jung-judging-functions',
+    collection: 'jung',
+    title: '请你放弃成为完美的人，因为这是不可能的，荣格八维每一维的两面性之剖析【下篇-判断功能四维】',
+    duration: '32:46',
+    date: '2021-11-13',
+    summary: '放弃成为完美的人——判断功能四维的两面性剖析（下篇）。',
+    desc: '放弃成为完美的人——判断功能四维的两面性剖析（下篇）。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1sU4y1M7zm',
+    cover: 'https://i0.hdslb.com/bfs/archive/80e45d2e75ed7f0543de005655c06c50b0139fb4.jpg',
+    sourceUrl: 'https://b23.tv/n6tLN3f',
+  },
+  {
+    slug: 'jung-mbti-conversion',
+    collection: 'jung',
+    title: '【荣格八维与MBTI的换算】以及【八维之间的互相克制原理】',
+    duration: '07:22',
+    date: '2020-08-24',
+    summary: '荣格八维与 MBTI 的换算，以及八维之间的互相克制原理。',
+    desc: '荣格八维与 MBTI 的换算，以及八维之间的互相克制原理。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1nT4y1L7QC',
+    cover: 'https://i2.hdslb.com/bfs/archive/de38ae5e751468ecd08609bafd5fb2bff18c26ef.jpg',
+    sourceUrl: 'https://b23.tv/dEiQ9SC',
+  },
+  {
+    slug: 'jung-personality-change',
+    collection: 'jung',
+    title: '从【荣格八维】角度看人格变更的可能性',
+    duration: '08:56',
+    date: '2020-10-02',
+    summary: '从荣格八维角度看人格变更的可能性。',
+    desc: '从荣格八维角度看人格变更的可能性。',
+    tags: ['荣格八维', '心理学'],
+    bvid: 'BV1vV41117g1',
+    cover: 'https://i2.hdslb.com/bfs/archive/481b0ef478fb70988718bf4a2bbac671a1a8c850.jpg',
+    sourceUrl: 'https://b23.tv/U03pR88',
+  },
 ]
+
+export function getVideosByCollection(collectionId: string): Video[] {
+  return VIDEOS.filter((video) => video.collection === collectionId)
+}
 
 export function getVideoBySlug(slug: string): Video | undefined {
   return VIDEOS.find((video) => video.slug === slug)
